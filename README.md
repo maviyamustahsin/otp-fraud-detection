@@ -2,6 +2,8 @@
 
 > A real-time, high-speed simulated machine learning dashboard designed to detect, track, and mitigate SMS/OTP authentication fraud across global telecommunication networks.
 
+![Dashboard Interface](./screenshot.png)
+
 ## 🌟 Key Features
 
 - **Live Request Simulation**: A continuously streaming Node.js backend generating a rapid, randomized burst of mock OTP authentication requests.
@@ -38,9 +40,6 @@ npm run dev
 *(If you are on Windows and PowerShell blocks `npm`, open CMD and use `cmd /c npm run dev`)*
 
 Once both are active, access your live, fast-paced analytical dashboard at the localhost link provided by Vite (usually `http://localhost:5173`)!
-
-## 📸 Quick Note on Preview Images
-*Take a beautiful snippet of the dashboard while the data is flowing! You can add it directly to this README by dragging and dropping your screenshot onto the GitHub web editor at the very top of the page!*
 
 ---
 
