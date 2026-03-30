@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrustGuard OTP Authenticator</title>
+    <!-- Fonts: Inter layout -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/src/style.css">
+  <body>
+    <div class="dashboard-wrapper">
+      
+      <!-- Top Navigation -->
+      <nav class="top-navbar">
+        <div class="brand">
+          <div class="logo-icon"><i data-feather="smartphone"></i></div>
+          <h1>TrustGuard <span>OTP Auth Protection</span></h1>
+        </div>
+        <div class="nav-metrics">
+          <div class="metric-pill" id="gateway-toggle-btn" style="cursor: pointer; transition: transform 0.1s;" title="Click to Pause/Resume the live feed">
+            <span class="label">Gateway</span>
+            <span class="value success-text" id="gateway-status-text"><span class="dot pulse" id="gateway-dot"></span> <span id="gateway-label">Active Protection</span></span>
+          </div>
+          <div class="metric-pill" id="restart-btn" style="cursor: pointer; transition: transform 0.1s; background: var(--surface-color); border: 1px solid var(--border-color);" title="Clear all data and restart the simulation from 0">
+            <span class="value" style="color: var(--text-main); display: flex; align-items: center;"><i data-feather="refresh-ccw" style="width: 14px; height: 14px; margin-right: 6px;"></i> Restart From Zero</span>
+          </div>
+        </div>
+      </nav>
+
+      <main class="main-layout">
+        
+        <!-- Left Column: Metrics and Tools -->
+        <aside class="left-panel">
+          <div class="card chart-card">
+            <h3>Live Protection Ratio</h3>
+            <div style="position: relative; height: 160px; width: 100%; display: flex; justify-content: center; align-items: center; margin-top: 10px;">
+                <canvas id="protectionChart"></canvas>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-box">
+              <div class="stat-icon blue"><i data-feather="mail"></i></div>
+              <div class="stat-info">
+                <h4>OTP Requests</h4>
+                <div class="stat-value" id="stat-processed">...</div>
+              </div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-icon red"><i data-feather="slash"></i></div>
+              <div class="stat-info">
+                <h4>Spam/Fraud Blocked</h4>
+                <div class="stat-value text-red" id="stat-prevented">...</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card model-card">
+            <h3>Threat Detection Engines</h3>
+            <ul class="engine-list">
+              <li>
+                <div class="engine-name">Device Fingerprinting (Known Bad Actors)</div>
+                <div class="progress-bar"><div class="fill purple" style="width: 88%;"></div></div>
+              </li>
+              <li>
+                <div class="engine-name">Geo-Velocity Checking (Impossible Travel)</div>
+                <div class="progress-bar"><div class="fill blue" style="width: 94%;"></div></div>
+              </li>
+              <li>
+                <div class="engine-name">Behavioral Neural Net (Phishing Patterns)</div>
+                <div class="progress-bar"><div class="fill green" style="width: 98%;"></div></div>
+              </li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- Right Column: Live Transactions -->
+        <section class="right-panel">
+          <div class="feed-header">
+            <h2>Live OTP Request Feed</h2>
+            <div class="feed-controls">
+              <button class="btn active">Real-time Stream</button>
+              <button class="btn">Flagged Only</button>
+            </div>
+          </div>
+          
+          <div class="table-container">
+            <table class="transaction-table">
+              <thead>
+                <tr>
+                  <th>Session ID</th>
+                  <th>Timestamp</th>
+                  <th>Origin IP & Region</th>
+                  <th>Target Phone No.</th>
+                  <th>Threat Score</th>
+                  <th>Gateway Action</th>
+                </tr>
+              </thead>
+              <tbody id="tx-stream-body">
+                <!-- Data injected by JS fetch polling -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+    <script>
+      feather.replace();
+    </script>
+  </body>
+</html>
