@@ -43,6 +43,11 @@ To provide a highly realistic fraud-monitoring environment, TrustGuard mathemati
 2. 🌍 **Geo-Velocity Checking**: "Impossible Travel" algorithms mapped against origin IPs to assure a user isn't physically requesting an OTP from India and then the USA 5 minutes later.
 3. 🕸️ **Behavioral Neural Network Ensembler**: Deep phishing pattern detection mapped across thousands of generated synthetic data points.
 
+### 💡 Architecture Note: Training Data vs Synthetic Pipeline
+In modern cybersecurity, malicious actors constantly evolve their phishing tools, making static `.csv` files (like older Kaggle datasets) rapidly obsolete for behavior mapping. 
+
+Rather than relying on static supervised learning, this project demonstrates a modern **Real-Time Data Pipeline and Visualization SOC**. The backend (`server.js`) utilizes a completely custom **Synthetic Data Generation Engine** to actively generate live, randomized traffic mimicking real-world botnet loads. The system then demonstrates **Unsupervised Anomaly Detection**—dynamically flagging anomalies (like inhuman burst requests or impossible geography) exactly as an active pipeline would catch a live zero-day attack where there is no historical Kaggle data to train on.
+
 ## 🛠️ Technology Stack
 
 - **Frontend Core**: Vanilla HTML / JS / CSS (Zero heavy UI frameworks to ensure maximum browser performance!).
