@@ -41,5 +41,3 @@ npm run dev
 
 Once both are active, access your live, fast-paced analytical dashboard at the localhost link provided by Vite (usually `http://localhost:5173`)!
 
-## 📸 Quick Note on Preview Images
-*Be sure to take a beautiful snippet of the dashboard while the green graph is spinning and data is flowing! Save the picture as `screenshot.png` directly in this root folder so GitHub automatically renders it at the top of this Readme!*
